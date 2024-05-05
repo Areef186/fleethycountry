@@ -69,10 +69,15 @@
 </header>
 
 <nav>
+    <a href="#" onclick="showHome()">Home</a>
     <a href="#" onclick="showBooks()">Books</a>
-    <a href="#">About Us</a>
-    <a href="#">Contact</a>
+    <a href="#" onclick="showAboutUs()">About Us</a>
 </nav>
+
+<section id="homeSection">
+    <h2>Home Page </h2>
+    <p>This is the home page content of the library of SMK Aminuddin Baki.</p>
+</section>
 
 <section id="booksSection" style="display: none;">
     <h2>Our Books</h2>
@@ -81,14 +86,26 @@
     </div>
 </section>
 
+<section id="aboutUsSection" style="display: none;">
+    <h2>About Us</h2>
+    <p>We are the library of SMK Aminuddin Baki. Dedication, Perseverance and Integrity is our aphorism.</p>
+</section>
+
 <footer>
     <p>&copy; 2024 Library Website. All rights reserved.</p>
 </footer>
 
 <script>
+    function showHome() {
+        document.getElementById("homeSection").style.display = "block";
+        document.getElementById("booksSection").style.display = "none";
+        document.getElementById("aboutUsSection").style.display = "none";
+    }
+
     function showBooks() {
-        var booksSection = document.getElementById("booksSection");
-        booksSection.style.display = "block";
+        document.getElementById("homeSection").style.display = "none";
+        document.getElementById("booksSection").style.display = "block";
+        document.getElementById("aboutUsSection").style.display = "none";
 
         var bookList = document.getElementById("bookList");
         // Clear any existing content
@@ -116,6 +133,12 @@
             bookDiv.appendChild(bookTitle);
             bookList.appendChild(bookDiv);
         });
+    }
+
+    function showAboutUs() {
+        document.getElementById("homeSection").style.display = "none";
+        document.getElementById("booksSection").style.display = "none";
+        document.getElementById("aboutUsSection").style.display = "block";
     }
 </script>
 
